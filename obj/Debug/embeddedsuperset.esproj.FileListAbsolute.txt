@@ -1,0 +1,1 @@
+C:\Dev\GitHub\EmbeddedSuperset\obj\Debug\embeddedsuperset.esproj.CoreCompileInputs.cache

@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "3314bb8c-fb35-4bba-a1fd-7665c1f1781f",
+		"name": "apache/superset",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13174227"
+	},
+	"item": [
+		{
+			"name": "Admin login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\",\r\n    \"provider\": \"db\",\r\n    \"refresh\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ubuntu-s1:8080/api/v1/security/login",
+					"protocol": "http",
+					"host": [
+						"ubuntu-s1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"security",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjk2MDA2NDk0LCJqdGkiOiI0NzI4Y2I0OC0zZTg5LTRhYzctYTU2Ny01ZGRkOGRhMzA5MjEiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2OTYwMDY0OTQsImV4cCI6MTY5NjAwNzM5NH0.IMxymrmOmsMQ-CqXXTl-NP9WjPlUuY7bJUnmpHDXuIE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resources\": [\r\n    {\r\n      \"id\": \"7bab5c75-e51a-4771-92ac-560e7bb3f1a6\",\r\n      \"type\": \"dashboard\"\r\n    }\r\n  ],\r\n  \"rls\": [\r\n      { \"clause\": \"TenantId=10\"}\r\n  ],\r\n  \"user\": {\r\n    \"first_name\": \"Marcelo\",\r\n    \"last_name\": \"Vargas\",\r\n    \"username\": \"mvargas\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ubuntu-s1:8080/api/v1/security/guest_token",
+					"protocol": "http",
+					"host": [
+						"ubuntu-s1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"security",
+						"guest_token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
