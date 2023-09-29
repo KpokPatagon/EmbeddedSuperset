@@ -1,0 +1,2 @@
+Superset Embedded SDK
+@superset-ui/embedded-sdk
